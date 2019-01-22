@@ -1,0 +1,32 @@
+<p id="komunikat"><%= flash[:komunikat] %></p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @event.artist %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Price Low:</strong>
+  <%= @event.price_low %>
+</p>
+
+<p>
+  <strong>Price High: </strong>
+  <%= @event.price_high %>
+</p>
+
+
+<p>
+  <strong>Event Date:</strong>
+  <%= @event.event_date %>
+</p>
+
+<%= render "tickets_list", tickets: @event.tickets %>
+
+<%= link_to 'Back', events_path %>

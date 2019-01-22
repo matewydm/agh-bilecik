@@ -1,4 +1,5 @@
 class Ticket < ApplicationRecord
+  belongs_to :event
   validates :name,
             presence: true,
             length: { minimum: 5 }

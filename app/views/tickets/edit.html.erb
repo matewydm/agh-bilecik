@@ -2,5 +2,7 @@
 
 <%= render 'form', ticket: @ticket %>
 
+<%= render "events_list", events: Event.all %>
+
 <%= link_to 'Show', @ticket %> |
 <%= link_to 'Back', tickets_path %>
