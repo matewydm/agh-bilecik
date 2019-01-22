@@ -27,9 +27,12 @@
         <td><%= ticket.seat_id_seq %></td>
         <td><%= ticket.event_id %></td>
         <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Buy', ticket, method: :post %></td>
+        <% if ticket.user == current_user || ticket.user.nil? %>
+          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+          <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        </tr>
     <% end %>
   </tbody>
 </table>

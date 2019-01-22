@@ -36,6 +36,8 @@
   <%= @ticket.event_id %>
 </p>
 
+<% if @ticket.user == current_user %>
+  <%= link_to 'Edit', edit_ticket_path(@ticket) %>
+<% end %>
 
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
