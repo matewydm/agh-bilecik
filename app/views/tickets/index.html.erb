@@ -2,7 +2,7 @@
 
 <h1>Tickets</h1>
 
-<table>
+<table class = "table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,11 +26,16 @@
         <td><%= ticket.phone_number %></td>
         <td><%= ticket.seat_id_seq %></td>
         <td><%= ticket.event_id %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Buy', ticket, method: :post %></td>
-        <% if ticket.user == current_user || ticket.user.nil? %>
-          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-          <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', ticket, class: 'btn btn-info btn-xs' %></td>
+        <% if ticket.user == current_user %>
+          <td><%= link_to  edit_ticket_path(ticket), class: 'btn btn-info btn-xs' do %>
+              <i class="glyphicon glyphicon-pencil"></i> Edit
+          <% end %>
+          </td>
+          <td><%= link_to  ticket, class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' }  do %>
+              <i class="glyphicon glyphicon-remove"></i> Destroy
+            <% end %>
+          </td>
         <% end %>
         </tr>
     <% end %>
@@ -39,4 +44,6 @@
 
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<td><%= link_to 'Buy a ticket', new_ticket_path, class: 'btn btn-success btn-xs' %></td>
+
+

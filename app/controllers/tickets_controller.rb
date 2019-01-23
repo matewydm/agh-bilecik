@@ -25,24 +25,12 @@ class TicketsController < ApplicationController
 
   # POST /tickets
   # POST /tickets.json
-  def buy
-    @ticket.user_id = current_user.id
-    if @ticket.save
-      format.html { redirect_to @ticket, notice: 'Ticket was bought successfully.' }
-      format.json { render :show, status: :ok, location: @ticket }
-    else
-      format.json { render json: @ticket.errors, status: :unprocessable_entity }
-    end
-  end
-
-  # POST /tickets
-  # POST /tickets.json
   def create
     @ticket = Ticket.new(ticket_params)
-
+    @ticket.user_id = current_user.id
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
+        format.html { redirect_to @ticket, notice: 'Ticket was successfully bought.' }
         format.json { render :show, status: :created, location: @ticket }
       else
         format.html { render :new }
@@ -54,6 +42,7 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
+    ticket_params.user_id = current_user.id
     respond_to do |format|
       if @ticket.update(ticket_params)
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
@@ -88,7 +77,7 @@ class TicketsController < ApplicationController
 
     def correct_user
       @ticket = Ticket.find(params[:id])
-      redirect_to tickets_path, notice: "Nie jesteś uprawniony do edycji tego biletu" if !@ticket.user.nil? && @ticket.user.id == current_user.id
+      redirect_to tickets_path, notice: "Nie jesteś uprawniony do edycji tego biletu" if @ticket.user.nil? || @ticket.user.id != current_user.id
     end
 
     def authenticate_user!

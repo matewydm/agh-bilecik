@@ -4,4 +4,5 @@
     <li><%= link_to event.artist, "/events/#{event.id}" %></li>
   <% end %>
 </ul>
-<%= link_to 'Nowe ogłoszenie', events_new_path %>
+
+<td><%= link_to 'Nowe ogłoszenie', events_new_path, class: 'btn btn-info btn-xs' %></td>

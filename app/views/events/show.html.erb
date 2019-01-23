@@ -29,4 +29,7 @@
 
 <%= render "tickets_list", tickets: @event.tickets %>
 
-<%= link_to 'Back', events_path %>
+<%= render "new_ticket", ticket: Ticket.new(:event_id => @event.id) %>
+
+<td><%= link_to 'Back', events_path, class: 'btn btn-warning btn-xs' %></td>
+

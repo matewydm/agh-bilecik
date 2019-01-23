@@ -43,8 +43,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :event_id %>
-    <%= form.text_field :event_id %>
+    <% if ticket.event_id.nil? %>
+      <%= form.label :event_id %>
+      <%= form.text_field :event_id %>
+    <% else %>
+      <%= form.hidden_field :event_id %>
+      <%= form.hidden_field :event_id %>
+    <% end %>
   </div>
 
   <div class="actions">

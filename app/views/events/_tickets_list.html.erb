@@ -2,7 +2,7 @@
 
 <h1>Tickets</h1>
 
-<table>
+<table class = "table-striped">
   <thead>
   <tr>
     <th>Name</th>
@@ -24,9 +24,9 @@
       <td><%= ticket.email_address %></td>
       <td><%= ticket.phone_number %></td>
       <td><%= ticket.seat_id_seq %></td>
-      <td><%= link_to 'Show', ticket %></td>
-      <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-      <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', ticket, class: 'btn btn-info btn-xs' %></td>
+      <td><%= link_to 'Edit', edit_ticket_path(ticket), class: 'btn btn-info btn-xs' %></td>
+      <td><%= link_to 'Destroy', ticket, class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
@@ -34,4 +34,3 @@
 
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>

@@ -2,7 +2,7 @@
 
 <h1>Events</h1>
 
-<table>
+<table class = "table-striped">
   <thead>
   <tr>
     <th>Id</th>
@@ -22,8 +22,6 @@
       <td><%= event.price_low %></td>
       <td><%= event.price_high %></td>
       <td><%= event.event_date %></td>
-      <td><%= link_to 'Show', event %></td>
-      <td><%= link_to 'Add', new_event_path(event) %></td>
     </tr>
   <% end %>
   </tbody>
@@ -31,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path , class: 'btn btn-success btn-xs'%>
