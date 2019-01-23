@@ -1,4 +1,10 @@
-<h1>New Ticket</h1>
-
-<%= render './tickets/form', ticket: ticket%>
-
+<p>
+  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#newTicketCollapse" aria-expanded="false" aria-controls="collapseExample">
+    New ticket
+  </button>
+</p>
+<div class="collapse" id="newTicketCollapse">
+  <div class="card card-body">
+    <%= render './tickets/form', ticket: ticket%>
+  </div>
+</div>
